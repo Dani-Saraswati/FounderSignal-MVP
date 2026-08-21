@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   THEME COLOR DEFINITIONS (All 8 Themes from Reference Application)
+   ========================================================================== */
+
+:root,
+[data-theme="glacier"],
+body.theme-glacier {
+  --bg-background: 7 11 20;
+  --bg-surface: 15 21 36;
+  --bg-surface-container: 20 28 46;
+  --bg-surface-low: 17 24 40;
+  --bg-surface-high: 30 41 59;
+  --text-on-surface: 226 236 245;
+  --text-on-surface-variant: 147 169 189;
+  --color-primary: 125 211 252;
+  --color-on-primary: 4 32 46;
+  --color-secondary: 136 180 204;
+  --color-tertiary: 200 160 240;
+  --border-color: 40 55 78;
+  --radius-default: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --glass-blur: 18px;
+  --glass-bg: rgba(15, 21, 36, 0.68);
+  --glass-border: rgba(125, 211, 252, 0.12);
+  --glass-shadow: 0 8px 34px rgba(0, 0, 0, 0.34);
+  --mesh-1: rgba(125, 211, 252, 0.16);
+  --mesh-2: rgba(200, 160, 240, 0.14);
+  --mesh-3: rgba(16, 185, 129, 0.1);
+  color-scheme: dark;
+}
+
+[data-theme="nebula"],
+body.theme-nebula {
+  --bg-background: 12 8 24;
+  --bg-surface: 22 16 40;
+  --bg-surface-container: 30 22 52;
+  --bg-surface-low: 26 19 46;
+  --bg-surface-high: 46 34 76;
+  --text-on-surface: 237 233 254;
+  --text-on-surface-variant: 168 155 214;
+  --color-primary: 167 139 250;
+  --color-on-primary: 24 14 46;
+  --color-secondary: 129 140 248;
+  --color-tertiary: 34 211 238;
+  --border-color: 55 42 90;
+  --radius-default: 0.625rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.75rem;
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --glass-blur: 22px;
+  --glass-bg: rgba(22, 16, 40, 0.65);
+  --glass-border: rgba(167, 139, 250, 0.16);
+  --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  --mesh-1: rgba(167, 139, 250, 0.2);
+  --mesh-2: rgba(34, 211, 238, 0.14);
+  --mesh-3: rgba(236, 72, 153, 0.12);
+  color-scheme: dark;
+}
+
+[data-theme="sunset"],
+body.theme-sunset {
+  --bg-background: 24 12 20;
+  --bg-surface: 38 20 32;
+  --bg-surface-container: 48 26 40;
+  --bg-surface-low: 44 23 36;
+  --bg-surface-high: 68 36 54;
+  --text-on-surface: 253 232 240;
+  --text-on-surface-variant: 214 165 185;
+  --color-primary: 251 146 60;
+  --color-on-primary: 46 18 4;
+  --color-secondary: 244 114 182;
+  --color-tertiary: 250 204 21;
+  --border-color: 76 40 60;
+  --radius-default: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --glass-blur: 16px;
+  --glass-bg: rgba(38, 20, 32, 0.66);
+  --glass-border: rgba(251, 146, 60, 0.18);
+  --glass-shadow: 0 10px 38px rgba(0, 0, 0, 0.4);
+  --mesh-1: rgba(251, 146, 60, 0.18);
+  --mesh-2: rgba(244, 114, 182, 0.14);
+  --mesh-3: rgba(250, 204, 21, 0.1);
+  color-scheme: dark;
+}
+
+[data-theme="carbon"],
+body.theme-carbon {
+  --bg-background: 10 10 10;
+  --bg-surface: 18 18 18;
+  --bg-surface-container: 24 24 24;
+  --bg-surface-low: 22 22 22;
+  --bg-surface-high: 38 38 38;
+  --text-on-surface: 237 237 237;
+  --text-on-surface-variant: 161 161 161;
+  --color-primary: 245 158 11;
+  --color-on-primary: 28 18 0;
+  --color-secondary: 212 212 212;
+  --color-tertiary: 16 185 129;
+  --border-color: 45 45 45;
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.375rem;
+  --font-headline: "JetBrains Mono", monospace;
+  --font-body: "Inter", sans-serif;
+  --glass-blur: 0px;
+  --glass-bg: #121212;
+  --glass-border: #2d2d2d;
+  --glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.03);
+  --mesh-1: rgba(245, 158, 11, 0.07);
+  --mesh-2: rgba(255, 255, 255, 0.03);
+  --mesh-3: rgba(16, 185, 129, 0.05);
+  color-scheme: dark;
+}
+
+[data-theme="sahara"],
+body.theme-sahara {
+  --bg-background: 250 245 238;
+  --bg-surface: 255 255 255;
+  --bg-surface-container: 255 253 250;
+  --bg-surface-low: 243 234 224;
+  --bg-surface-high: 232 222 211;
+  --text-on-surface: 42 36 32;
+  --text-on-surface-variant: 110 100 94;
+  --color-primary: 194 101 42;
+  --color-on-primary: 255 255 255;
+  --color-secondary: 87 77 70;
+  --color-tertiary: 140 60 60;
+  --border-color: 232 222 211;
+  --radius-default: 0.375rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --font-headline: "EB Garamond", serif;
+  --font-body: "Manrope", sans-serif;
+  --glass-blur: 0px;
+  --glass-bg: #ffffff;
+  --glass-border: #e8ded3;
+  --glass-shadow: 0 2px 18px rgba(58, 48, 42, 0.05);
+  --mesh-1: rgba(194, 101, 42, 0.09);
+  --mesh-2: rgba(140, 60, 60, 0.07);
+  --mesh-3: rgba(87, 77, 70, 0.05);
+  color-scheme: light;
+}
+
+[data-theme="bento"],
+body.theme-bento {
+  --bg-background: 246 248 251;
+  --bg-surface: 255 255 255;
+  --bg-surface-container: 255 255 255;
+  --bg-surface-low: 241 245 249;
+  --bg-surface-high: 203 213 225;
+  --text-on-surface: 15 23 42;
+  --text-on-surface-variant: 71 85 105;
+  --color-primary: 15 23 42;
+  --color-on-primary: 255 255 255;
+  --color-secondary: 71 85 105;
+  --color-tertiary: 14 165 233;
+  --border-color: 226 232 240;
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --font-headline: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --glass-blur: 0px;
+  --glass-bg: #ffffff;
+  --glass-border: #e2e8f0;
+  --glass-shadow: 0 1px 3px rgba(15, 23, 42, 0.07);
+  --mesh-1: rgba(14, 165, 233, 0.07);
+  --mesh-2: rgba(15, 23, 42, 0.04);
+  --mesh-3: rgba(99, 102, 241, 0.05);
+  color-scheme: light;
+}
+
+[data-theme="matcha"],
+body.theme-matcha {
+  --bg-background: 244 247 240;
+  --bg-surface: 255 255 255;
+  --bg-surface-container: 252 254 250;
+  --bg-surface-low: 236 243 231;
+  --bg-surface-high: 214 228 205;
+  --text-on-surface: 26 41 27;
+  --text-on-surface-variant: 90 110 88;
+  --color-primary: 22 128 84;
+  --color-on-primary: 255 255 255;
+  --color-secondary: 74 103 65;
+  --color-tertiary: 180 120 30;
+  --border-color: 219 231 212;
+  --radius-default: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --glass-blur: 10px;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(22, 128, 84, 0.14);
+  --glass-shadow: 0 6px 26px rgba(31, 61, 33, 0.07);
+  --mesh-1: rgba(22, 128, 84, 0.1);
+  --mesh-2: rgba(180, 120, 30, 0.08);
+  --mesh-3: rgba(74, 103, 65, 0.06);
+  color-scheme: light;
+}
+
+[data-theme="pastel"],
+body.theme-pastel {
+  --bg-background: 253 250 253;
+  --bg-surface: 255 255 255;
+  --bg-surface-container: 255 255 255;
+  --bg-surface-low: 246 240 255;
+  --bg-surface-high: 255 255 255;
+  --text-on-surface: 30 27 75;
+  --text-on-surface-variant: 91 83 196;
+  --color-primary: 99 102 241;
+  --color-on-primary: 255 255 255;
+  --color-secondary: 129 140 248;
+  --color-tertiary: 219 39 119;
+  --border-color: 224 224 252;
+  --radius-default: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --font-headline: "Nunito", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --glass-blur: 14px;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(99, 102, 241, 0.14);
+  --glass-shadow: 0 10px 36px rgba(99, 102, 241, 0.07);
+  --mesh-1: rgba(219, 39, 119, 0.1);
+  --mesh-2: rgba(99, 102, 241, 0.12);
+  --mesh-3: rgba(6, 182, 212, 0.1);
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
+
+* {
+  border-color: rgb(var(--border-color) / 1);
+}
+
+body {
+  background-color: rgb(var(--bg-background));
+  color: rgb(var(--text-on-surface));
+  font-family: var(--font-body);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(60rem 60rem at 12% -10%, var(--mesh-1), transparent 60%),
+    radial-gradient(50rem 50rem at 105% 8%, var(--mesh-2), transparent 60%),
+    radial-gradient(45rem 45rem at 50% 115%, var(--mesh-3), transparent 60%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--color-primary));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--bg-surface-high) / 0.7);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-primary) / 0.6);
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   GLASS & CONTAINER UTILITIES
+   ========================================================================== */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-strong {
+  background: rgb(var(--bg-surface-container));
+  backdrop-filter: blur(calc(var(--glass-blur) + 6px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 6px));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+}
+
+.glass-card-elevated {
+  background: rgb(var(--bg-surface-container) / 0.85);
+  backdrop-filter: blur(calc(var(--glass-blur) + 6px));
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 6px));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-xl);
+}
+
+.tile-rise {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.tile-rise:hover {
+  transform: translateY(-3px);
+  border-color: rgb(var(--color-primary) / 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+}
+
+.text-gradient {
+  background-image: linear-gradient(100deg, rgb(var(--color-primary)), rgb(var(--color-tertiary)) 55%, rgb(var(--color-primary)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgb(var(--bg-surface-low));
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(90deg, transparent, rgb(var(--text-on-surface) / 0.08), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@keyframes slide-up-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+/* Recharts overrides */
+.recharts-cartesian-axis-tick text {
+  fill: rgb(var(--text-on-surface-variant));
+  font-size: 11px;
+  font-weight: 500;
+}
+.recharts-cartesian-grid line {
+  stroke: rgb(var(--border-color) / 0.4);
+}
